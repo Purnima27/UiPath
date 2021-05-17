@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "+fc3/monBtdhnLRHF4Qop270Goaegzb3JiTpOmL0xe+olGYYeLlmC9W99OFNs2zpY16MTuYX0UwTBZ0gO4NYIw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\itabh\\Desktop\\UiPath Projects\\UiPathREFRamework_CalculateClientSecurityHash\\.local\\",
+  "expectedPackageFiles": [
+    "C:\\Users\\itabh\\.nuget\\packages\\avalonedit\\5.0.3\\avalonedit.5.0.3.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\closedxml\\0.87.1\\closedxml.0.87.1.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\csvhelper\\2.13.5\\csvhelper.2.13.5.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\documentformat.openxml\\2.5.0\\documentformat.openxml.2.5.0.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\extended.wpf.toolkit\\2.8.0\\extended.wpf.toolkit.2.8.0.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\humanizer.core\\2.4.2\\humanizer.core.2.4.2.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\microsoft.aspnet.signalr.client\\2.4.0\\microsoft.aspnet.signalr.client.2.4.0.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\microsoft.rest.clientruntime\\2.3.20\\microsoft.rest.clientruntime.2.3.20.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\microsoft.visualstudio.ole.interop\\7.10.6071\\microsoft.visualstudio.ole.interop.7.10.6071.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\npoi\\2.4.1\\npoi.2.4.1.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\sharpziplib\\1.0.0\\sharpziplib.1.0.0.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\system.io.abstractions\\3.0.10\\system.io.abstractions.3.0.10.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\system.threading.tasks.dataflow\\4.10.0\\system.threading.tasks.dataflow.4.10.0.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\uipath\\20.4.7391.34509\\uipath.20.4.7391.34509.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\uipath.excel.activities\\2.8.3-beta.867639\\uipath.excel.activities.2.8.3-beta.867639.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\uipath.ocr.contracts\\2.6.0-beta.835380\\uipath.ocr.contracts.2.6.0-beta.835380.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\uipath.platform\\20.4.0-beta.861233\\uipath.platform.20.4.0-beta.861233.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\uipath.system.activities\\20.4.0-beta.864462\\uipath.system.activities.20.4.0-beta.864462.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\uipath.telemetry.client\\1.1.36\\uipath.telemetry.client.1.1.36.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\uipath.uiautomation.activities\\20.4.0-beta.866690\\uipath.uiautomation.activities.20.4.0-beta.866690.nupkg.sha512",
+    "C:\\Users\\itabh\\.nuget\\packages\\uipath.vision\\2.0.3-beta.853545\\uipath.vision.2.0.3-beta.853545.nupkg.sha512"
+  ],
+  "logs": []
+}
