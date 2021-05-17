@@ -1,0 +1,1 @@
+INSERT INTO Invoice(InvoiceNo,InvoiceDate,ProductCode,ProductDesc,Quantity,UnitPrice,Amount) Values('INV001','2020-10-30','PRD001','LenovoLaptop',50,2000.50,0)

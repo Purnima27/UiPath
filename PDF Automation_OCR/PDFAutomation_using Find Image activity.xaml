@@ -1,0 +1,93 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PDFAutomation_using_Find_Image_activity" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="824,610" sap2010:WorkflowViewState.IdRef="PDFAutomation_using_Find_Image_activity_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="24">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="PDFAutomation_using_Find_Image_activity" sap:VirtualizedContainerService.HintSize="376,443.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Result" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image 'acrord32.exe samplePDF_...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_1">
+      <ui:WaitImageAppear.Image>
+        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="2.5" Profile="Basic" TargetImageBase64="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" />
+      </ui:WaitImageAppear.Image>
+      <ui:WaitImageAppear.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c7bf1d13-260c-4f45-9bb3-9250e6ac6dd0" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='samplePDF_explain.pdf (SECURED) - Adobe Acrobat Reader DC (32-bi*' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:WaitImageAppear.Target>
+    </ui:WaitImageAppear>
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text  May 2001'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="181c2f2b-659a-4e4c-84d9-f2d04f7fcba4" InformativeScreenshot="4bd41a4b528f2de3b301083c22b917eb" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='samplePDF_explain.pdf (SECURED) - Adobe Acrobat Reader DC (32-bi*' /&gt;&lt;wnd aaname='Document Pane' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd cls='AVL_AVView' title='AVPageView' /&gt;&lt;ctrl role='row' /&gt;&lt;ctrl omit:name='May 2001 ' role='text' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[Result]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[Result]" />
+  </Sequence>
+</Activity>
