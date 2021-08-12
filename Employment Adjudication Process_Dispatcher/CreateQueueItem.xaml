@@ -1,0 +1,325 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CreateQueueItem" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_EADFilePath" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>682.4,2530.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CreateQueueItem_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="24">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CreateQueueItem" sap:VirtualizedContainerService.HintSize="740,3952" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:String[]" Name="ImmgFileCollection" />
+      <Variable x:TypeArguments="x:String" Name="strPDFOutput" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="ExpireResult" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="PassportNo" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="ApplicantName" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="AlienRegNo" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="CountryIssued" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="BirthDate" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="I94RecordNo" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="EligibilityCategory" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="SSN" />
+      <Variable x:TypeArguments="x:String" Name="strPassport" />
+      <Variable x:TypeArguments="x:String" Name="StrSSN" />
+      <Variable x:TypeArguments="x:String" Name="StrApplicant" />
+      <Variable x:TypeArguments="x:String" Name="StrEligibility" />
+      <Variable x:TypeArguments="x:String" Name="StrI94RecordNo" />
+      <Variable x:TypeArguments="x:String" Name="StrBirthdate" />
+      <Variable x:TypeArguments="x:String" Name="StrCountryIssued" />
+      <Variable x:TypeArguments="s:String[]" Name="ArrApplicant" />
+      <Variable x:TypeArguments="x:String" Name="StrAlienRegNo" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="698,59.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[ImmgFileCollection]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(In_EADFilepath,"*I765Form.pdf")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="698,611.6" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="562.4,534" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[ImmgFileCollection.Count =0]" DisplayName="If_Check count of Files in Invoice collection" sap:VirtualizedContainerService.HintSize="520.4,442" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Sequence_Collection size is zero then log it at info level message" sap:VirtualizedContainerService.HintSize="376,292.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.6" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;No Input files are presesnt in root folder&quot;]" />
+                <ui:ShouldStop sap2010:Annotation.AnnotationText="if collection size is zero process should stop" DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="334,66.8" sap2010:WorkflowViewState.IdRef="ShouldStop_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ShouldStop>
+              </Sequence>
+            </If.Then>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="698,3108.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[ImmgFileCollection]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="662.4,2974.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[file]" sap:VirtualizedContainerService.HintSize="620.4,87.2" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="620.4,52.4" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="num1" KeyModifiers="Ctrl" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="15f1534a-c33a-4deb-a612-c5ee81cf5c0f">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:SendHotkey>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="620.4,222" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,144.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Infer Readaing order workflow" sap:VirtualizedContainerService.HintSize="200,52.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Tagged Readaing order.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[file]" sap:VirtualizedContainerService.HintSize="620.4,59.2" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[strPDFOutput]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="620.4,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[strPDFOutput]" />
+            <ui:Matches sap:VirtualizedContainerService.HintSize="620.4,59.2" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[strPDFOutput]" IsBuilderTabModified="False" Pattern="(?&lt;=Expires\s)(.*?(?=\s))" RegexOption="IgnoreCase, Compiled" Result="[ExpireResult]" />
+            <If Condition="[ExpireResult(0).Value=&quot;07/31/2022&quot;]" sap:VirtualizedContainerService.HintSize="620.4,1892" sap2010:WorkflowViewState.IdRef="If_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,1742" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Matches sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[strPDFOutput]" IsBuilderTabModified="False" Pattern="(?&lt;=Passport\sNo\s)(.*?(?=\s))" RegexOption="IgnoreCase, Compiled" Result="[PassportNo]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,59.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[strPassport]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[PassportNo(0).Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Matches sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[strPDFOutput]" IsBuilderTabModified="False" Pattern="(\S+)+,.+" RegexOption="IgnoreCase, Compiled" Result="[ApplicantName]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,59.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[StrApplicant]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[ApplicantName(0).Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="334,59.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:String[]">[ArrApplicant]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:String[]">[StrApplicant.Split(","c)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Matches sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[strPDFOutput]" IsBuilderTabModified="False" Pattern="(?&lt;=Form\sI94\sRecord\sNumber\s)(.*?(?=\s))" RegexOption="IgnoreCase, Compiled" Result="[I94RecordNo]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,59.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[StrI94RecordNo]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[I94RecordNo(0).Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Matches sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[strPDFOutput]" IsBuilderTabModified="False" Pattern="(?&lt;=Country\sIssued\s)(.*?(?=\s))" RegexOption="IgnoreCase, Compiled" Result="[CountryIssued]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,59.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[StrCountryIssued]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[CountryIssued(0).Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Matches sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[strPDFOutput]" IsBuilderTabModified="False" Pattern="(?&lt;=Birth\sDate\s)(.*?(?=\s))" RegexOption="IgnoreCase, Compiled" Result="[BirthDate]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,59.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[StrBirthdate]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[BirthDate(0).Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Matches sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[strPDFOutput]" IsBuilderTabModified="False" Pattern="(?&lt;=Eligibility\sCategory\s)(.*?(?=\s))" RegexOption="IgnoreCase, Compiled" Result="[EligibilityCategory]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,59.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[StrEligibility]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[EligibilityCategory(0).Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Matches BuilderPattern="(?&lt;=Alien\sRegistration\sNumber\s)(.*?(?=\s))" DisplayName="Matches_AlienRegistrationNumber" sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="Matches_8" Input="[strPDFOutput]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Alien\\sRegistration\\sNumber\\s)(.*?(?=\\s))&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Alien\sRegistration\sNumber\s)(.*?(?=\s))" RegexOption="IgnoreCase" Result="[AlienRegNo]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,59.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[StrAlienRegNo]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[AlienRegNo(0).Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Matches BuilderPattern="(?&lt;=Social\sSecurity\sNumber\s)(.*?(?=\s))" DisplayName="Matches_SocialSecurityNumber" sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="Matches_9" Input="[strPDFOutput]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Social\\sSecurity\\sNumber\\s)(.*?(?=\\s))&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Social\sSecurity\sNumber\s)(.*?(?=\s))" RegexOption="IgnoreCase" Result="[SSN]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,59.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[StrSSN]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[SSN(0).Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Throw Exception="[New BusinessRuleException(&quot;Incorrect Form&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              </If.Else>
+            </If>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="620.4,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="EAP" Reference="[StrAlienRegNo]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="x:String" x:Key="FirstName">[ArrApplicant(1).Split("\"c)(0).ToString.Trim]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="LastName">[ArrApplicant(0).ToString.Trim]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="DOB">[StrBirthdate]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="AlienRegNo">[StrAlienRegNo]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="SSN">[StrSSN]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="PassportNo">[strPassport]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="IssuedCountry">[StrCountryIssued]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="I94RecordNo">[StrI94RecordNo]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Eligibility">[StrEligibility]</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+            </ui:AddQueueItem>
+            <ui:CloseApplication DisplayName="Close Application 'client'" sap:VirtualizedContainerService.HintSize="620.4,106" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+              <ui:CloseApplication.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0bb60235-935d-4168-8dc6-56aeec78c312" InformativeScreenshot="8e14509dba0fcaff098d785e4ca9bc10" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='Dummy-H4-I765Form.pdf*' /&gt;&lt;wnd aaname='Document Pane' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd cls='AVL_AVView' title='AVPageView' /&gt;&lt;ctrl role='client' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:CloseApplication.Target>
+            </ui:CloseApplication>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>

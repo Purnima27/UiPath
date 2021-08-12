@@ -1,0 +1,44 @@
+08/11/2021 21:49:00 => [Debug] Debug started for project: Employment Adjudication Process_Processor
+08/11/2021 21:49:01 => [Info] Employment Adjudication Process_Processor execution started
+08/11/2021 21:49:26 => [Info] THE UNITED STATES OF AMERICA |
+Application For Employment Authorization
+DEPARTMENT OF HOMELAND SECURITY U.S. CITIZENSHIP AND IMMIGRATION SERVICE
+
+USCIS Form I-765
+OMB No.1615-0040
+Expires 07/31/2022
+
+Your U.S. Mailing Address
+11111 Ivory Drive
+Apt 1D
+City Schaumburg
+State IL
+Zip Code 60090
+Case Type
+I765- Application For
+Employment
+Authorization Document
+
+Social Security Number
+763001103
+Alien Registration Number
+130000099
+Applicant
+SINGH, ABC
+
+Birth Place Page Eligibility Category (C)(26)
+City Delhi
+State Delhi 1 of 1
+Country India
+Birth Date 07/07/1990
+
+Passport No D000001 Form I94 Record Number 00000000011
+
+Country Issued India Your Last Arrival Date into the United States 02/09/2019
+
+Passport Expiry Date 07/03/2030 Place of Last Arrival into the United States Chicago
+
+H1B Spouse Notice For petition Current Visa Category H4
+DUMMY2021010110
+Phone Number 2248305525 Email Id : ps.iec.953@gmail.com
+Form Filed Date 06/03/2021 Applicant’s Signature ABC Singh
