@@ -1,0 +1,386 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="FetchQueueItems" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_SSN" Type="InArgument(x:String)" />
+    <x:Property Name="in_FolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_UserId" Type="InArgument(x:String)" />
+    <x:Property Name="in_Password" Type="InArgument(ss:SecureString)" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_ApplicantMail" Type="InArgument(x:String)" />
+    <x:Property Name="in_H1BReceiptNumber" Type="InArgument(x:String)" />
+    <x:Property Name="in_PassportNo" Type="InArgument(x:String)" />
+    <x:Property Name="in_IssuedCountry" Type="InArgument(x:String)" />
+    <x:Property Name="in_Month" Type="InArgument(x:String)" />
+    <x:Property Name="in_Date" Type="InArgument(x:String)" />
+    <x:Property Name="in_Year" Type="InArgument(x:String)" />
+    <x:Property Name="in_LastName" Type="InArgument(x:String)" />
+    <x:Property Name="in_FirstName" Type="InArgument(x:String)" />
+    <x:Property Name="in_I94RecordNum" Type="InArgument(x:String)" />
+    <x:Property Name="in_I94Website" Type="InArgument(x:String)" />
+    <x:Property Name="in_H1BNoticePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_I140DocPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_H4NoticePath" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:FetchQueueItems.in_SSN>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_SSN>
+  <this:FetchQueueItems.in_FolderPath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_FolderPath>
+  <this:FetchQueueItems.in_ApplicantMail>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_ApplicantMail>
+  <this:FetchQueueItems.in_H1BReceiptNumber>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_H1BReceiptNumber>
+  <this:FetchQueueItems.in_PassportNo>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_PassportNo>
+  <this:FetchQueueItems.in_IssuedCountry>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_IssuedCountry>
+  <this:FetchQueueItems.in_Month>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_Month>
+  <this:FetchQueueItems.in_Date>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_Date>
+  <this:FetchQueueItems.in_Year>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_Year>
+  <this:FetchQueueItems.in_LastName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_LastName>
+  <this:FetchQueueItems.in_FirstName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_FirstName>
+  <this:FetchQueueItems.in_I94RecordNum>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_I94RecordNum>
+  <this:FetchQueueItems.in_H1BNoticePath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_H1BNoticePath>
+  <this:FetchQueueItems.in_I140DocPath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_I140DocPath>
+  <this:FetchQueueItems.in_H4NoticePath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FetchQueueItems.in_H4NoticePath>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1400.4,2290</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>FetchQueueItems_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="24">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Verify H1B, I140, H4 documents and check I94 validity on the website by fetching latest record Number nad based on defined set criteria approve or deny the case." DisplayName="VerificationProcessSteps" sap:VirtualizedContainerService.HintSize="1380.4,2230" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1338.4,2138" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence DisplayName="Process supporting documents for EAD" sap:VirtualizedContainerService.HintSize="1300.8,1882" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Double" Name="TotalH4Days" />
+            <Variable x:TypeArguments="x:Boolean" Name="I94RecordExist" />
+            <Variable x:TypeArguments="x:Boolean" Name="I140Status" />
+            <Variable x:TypeArguments="x:Double" Name="TotalH1BDays" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence sap2010:Annotation.AnnotationText="Verification and validation of H1B visa holders document&#xA;Input- Documnet path&#xA;Output- Approvaed I140 status, totals days left on H1B&#xA;" DisplayName="PrimaryVisaholder'sVerification" sap:VirtualizedContainerService.HintSize="1258.8,358.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Input- H1B Approval notice path, H1B receipt number&#xA;Output- total day sleft on H1B from todays date" DisplayName="Invoke H1BVisaVerificationProcess workflow" sap:VirtualizedContainerService.HintSize="363.6,113.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="EADPrerequisits\H1BVisaVerificationProcess.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SSN">[in_SSN]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">[in_FolderPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_H1BReceiptNumber">[in_H1BReceiptNumber]</InArgument>
+                <OutArgument x:TypeArguments="x:Double" x:Key="out_TotalH1BDays">[TotalH1BDays]</OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_H1BApprovalNotice">[in_H1BNoticePath]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Input- Path of I140 Documnet&#xA;Output- Approved I140 statsu confirmation." DisplayName="Invoke I140VerificationProcess workflow" sap:VirtualizedContainerService.HintSize="363.6,113.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="EADPrerequisits\I140VerificationProcess.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SSN">[in_SSN]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">[in_FolderPath]</InArgument>
+                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_I140Result">[I140Status]</OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_I140ApprovalNotice">[in_I140DocPath]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+          <If sap2010:Annotation.AnnotationText="Check eligibility conditions for EAD&#xD;&#xA;input- Total H1B Days, I140 approval status&#xD;&#xA;output- H4 is eligible for EAD or Denial email to Applicant" Condition="[TotalH1BDays&gt;180 And I140Status=True]" DisplayName="If_check Primary conditions are met for EAD" sap:VirtualizedContainerService.HintSize="1258.8,1267.6" sap2010:WorkflowViewState.IdRef="If_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap2010:Annotation.AnnotationText="Applican't H4 doc verification and check I94 records on I94 Website&#xA;Input- H4 Doucmnet path, I94 Website url nad Applian't detail&#xA;Output- today days left on H4 and I94 correct record found on website " DisplayName="H4VisaHolder'Verification" sap:VirtualizedContainerService.HintSize="838.4,1056.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="796.4,93.6" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Primary Eligibility conditions are met for item: &quot;+in_TransactionItem.ToString]" />
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="H4 approval notice verification&#xA;Input- Documnet path&#xA;Output- how many day srae left on approved H4" DisplayName="Invoke H4ApprovalVerification workflow" sap:VirtualizedContainerService.HintSize="796.4,113.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="EADPrerequisits\H4ApprovalVerification.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <OutArgument x:TypeArguments="x:Double" x:Key="out_TotalH4Days">[TotalH4Days]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">[in_FolderPath]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_SSN">[in_SSN]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_H4ApprovalNotice">[in_H4NoticePath]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:InvokeWorkflowFile>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Check and verify the correct I94 record of Applicant on the I94 Website.&#xA;Input- Fisrt name, last name, passport number, birthdate, year , month, I94 website url, passport issued country&#xA;Output- Record available and matched with the record entered on the I765 form" DisplayName="Invoke I94 Validity Check workflow" sap:VirtualizedContainerService.HintSize="796.4,113.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="EADPrerequisits\I94 Validity Check.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_PassportNumber">[in_PassportNo]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_IssuedCountry">[in_IssuedCountry]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_BirthMonth">[in_Month]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_Birthdate">[Int32.Parse(in_Date)]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_BirthYear">[in_Year]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_LastName">[in_LastName]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_FirstName">[in_FirstName]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_I94recordNo">[in_I94RecordNum]</InArgument>
+                    <OutArgument x:TypeArguments="x:Boolean" x:Key="out_I94RecordExist">[I94RecordExist]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_I94Site">[in_I94Website]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">[in_FolderPath]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_SSN">[in_SSN]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:InvokeWorkflowFile>
+                <If sap2010:Annotation.AnnotationText="Check Total days left on H4 is greater than 6 months and I94 record is correct?" Condition="[TotalH4Days&gt;180 And I94RecordExist=True]" DisplayName="If_Check EAD Approval condition" sap:VirtualizedContainerService.HintSize="796.4,524.4" sap2010:WorkflowViewState.IdRef="If_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence sap2010:Annotation.AnnotationText="Approval condition&#xD;&#xA;input- Applican't email&#xD;&#xA;output- message logged and email sent" DisplayName="Sequence_Approval mail" sap:VirtualizedContainerService.HintSize="376,374.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="Your case has been aproved and card has been ordered in production" DisplayName="Send SMTP Mail Message" Email="[in_UserId]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,148.8" sap2010:WorkflowViewState.IdRef="SendMail_2" IsBodyHtml="False" Port="587" SecureConnection="Auto" SecurePassword="[in_Password]" Server="smtp.gmail.com" Subject="Approval Notification for EAD" To="[in_ApplicantMail]">
+                        <ui:SendMail.Files>
+                          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                        </ui:SendMail.Files>
+                      </ui:SendMail>
+                      <ui:LogMessage DisplayName="Log Message_Approval" sap:VirtualizedContainerService.HintSize="334,93.6" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Applicant's case has been approved for EAD&quot;]" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap2010:Annotation.AnnotationText="steps to take in case of denial&#xD;&#xA;input- Aplican't email id&#xD;&#xA;output- message logged and denila mail sent" DisplayName="Sequence_Denial mail" sap:VirtualizedContainerService.HintSize="376,374.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Body="Your case hasn't met certain conditions for the approval criteria" DisplayName="Send SMTP Mail Message" Email="[in_UserId]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,148.8" sap2010:WorkflowViewState.IdRef="SendMail_3" IsBodyHtml="False" Password="[new System.Net.NetworkCredential(string.Empty, In_Password).Password]" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Case Denied for EAD" To="[in_ApplicantMail]">
+                        <ui:SendMail.Files>
+                          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                        </ui:SendMail.Files>
+                      </ui:SendMail>
+                      <ui:LogMessage DisplayName="Log Message_Denial" sap:VirtualizedContainerService.HintSize="334,93.6" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Applicant's case has been denied for the EAD&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap2010:Annotation.AnnotationText="Log denial condition and send denila email to applicant&#xD;&#xA;" DisplayName="Primary's criteria doesn't met" sap:VirtualizedContainerService.HintSize="376,374.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message_PrimaryConditionsnotMet" sap:VirtualizedContainerService.HintSize="334,93.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Applicant can not grant EAD&quot;]" />
+                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="Send Rejected status email to the Applicant" DisplayName="Send SMTP Mail Message" Email="[in_UserId]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,148.8" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Port="587" SecureConnection="Auto" SecurePassword="[in_Password]" Server="smtp.gmail.com" Subject="Case Denied for EAD" To="[in_ApplicantMail]">
+                  <ui:SendMail.Files>
+                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                  </ui:SendMail.Files>
+                </ui:SendMail>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:SetTransactionStatus ContinueOnError="{x:Null}" Reason="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Set Transaction Status" ErrorType="Business" sap:VirtualizedContainerService.HintSize="1258.8,22" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_6" Status="Successful" TransactionItem="[in_TransactionItem]">
+            <ui:SetTransactionStatus.Analytics>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+            </ui:SetTransactionStatus.Analytics>
+            <ui:SetTransactionStatus.Output>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+            </ui:SetTransactionStatus.Output>
+          </ui:SetTransactionStatus>
+          <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete_AttachmentFolder" sap:VirtualizedContainerService.HintSize="1258.8,22" sap2010:WorkflowViewState.IdRef="Delete_2" Path="[in_FolderPath+&quot;\&quot;+in_SSN]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="1304.4,22.8" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="376,436.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;RFE Reason: &quot; + exception.Message]" DisplayName="Send SMTP Mail Message" Email="[in_UserId]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,148.8" sap2010:WorkflowViewState.IdRef="SendMail_4" IsBodyHtml="False" Port="587" SecureConnection="Auto" SecurePassword="[in_Password]" Server="smtp.gmail.com" Subject="RFE Email" To="[in_ApplicantMail]">
+                <ui:SendMail.Files>
+                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                </ui:SendMail.Files>
+              </ui:SendMail>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.6" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[exception.source +&quot; &quot;+&quot; :&quot;+exception.Message]" />
+              <ui:SetTransactionStatus ContinueOnError="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Set Transaction Status" ErrorType="Business" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_4" Reason="[exception.Source+exception.Message]" Status="Failed" TransactionItem="[in_TransactionItem]">
+                <ui:SetTransactionStatus.Analytics>
+                  <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+                </ui:SetTransactionStatus.Analytics>
+                <ui:SetTransactionStatus.Output>
+                  <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+                </ui:SetTransactionStatus.Output>
+              </ui:SetTransactionStatus>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1304.4,22.8" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="ExceptionScenario" sap:VirtualizedContainerService.HintSize="376,247.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.6" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[exception.Source+exception.Message]" />
+              <ui:SetTransactionStatus ContinueOnError="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Set Transaction Status" ErrorType="Application" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_5" Reason="Error with I94 website" Status="Failed" TransactionItem="[in_TransactionItem]">
+                <ui:SetTransactionStatus.Analytics>
+                  <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+                </ui:SetTransactionStatus.Analytics>
+                <ui:SetTransactionStatus.Output>
+                  <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+                </ui:SetTransactionStatus.Output>
+              </ui:SetTransactionStatus>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Chrome" />
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>
